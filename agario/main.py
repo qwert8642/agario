@@ -1,1 +1,2 @@
-print(228)
+print(28)
+print(23456)
