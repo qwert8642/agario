@@ -18,10 +18,20 @@ while True:
     except BlockingIOError: 
         pass     
     
-    # принятие и отправка
+    # принятие 
     for sock in players:
         try:
            data = sock.recv(1024).decode()
            print('получил',data)
         except:
             pass
+    
+    #отправка данных игрокам 
+    for sock in players:
+        try:
+            sock.send('medniibuk'.encode())
+        except:
+            players.remove(sock) 
+            sock.close()
+            print('сокет закрыт')
+              
